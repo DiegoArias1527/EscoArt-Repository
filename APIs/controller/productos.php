@@ -1,8 +1,8 @@
 <?php
     header('Content-Type: application/json');
 
-    require_once("./APIs/config/conexion.php");
-    require_once("./APIs/models/Productos.php");
+    require_once("../config/conexion.php");
+    require_once("../models/Productos.php");
     $productos = new Productos();
     $body = json_decode(file_get_contents("php://input"), true);
 
