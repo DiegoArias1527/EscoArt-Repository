@@ -28,5 +28,17 @@
             );
             echo "Correcto";
         break;
+
+        case "Update":
+            $datos=$productos->update_productos(
+                $body["id_Producto"],
+                $body["Nom_Producto"],
+                $body["Precio_Producto"],
+                $body["Desc_Producto"],
+                $body["Id_Categoria"],
+                $body["Id_Proveedor"]
+            );
+            echo "Upadate Correcto";
+        break;
     }
 ?>
