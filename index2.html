@@ -49,29 +49,11 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="about.html">Sobre Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./carrito/index.html">Tienda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contacto</a>
+                            <a class="nav-link" href="./carrito/index.php">Tienda</a>
                         </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
                     <a class="nav-icon position-relative text-decoration-none" href="./index.html">
                         <i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
@@ -318,16 +300,16 @@ https://templatemo.com/tm-559-zay-shop
                 <h3>Redes</h3>
                 <p>enterate de lo ultimo</p>
                 <div class="redes-sociales redes-pie">
-                    <i class="fab fa-facebook-square"></i>
-                    <i class="fab fa-twitter-square"></i>
-                    <i class="fab fa-instagram"></i>
+                    <button onclick="irAFacebook()">
+                        <i class="fab fa-facebook-square"></i>
+                    </button>
+                    <button onclick="irATwitter()">
+                        <i class="fab fa-twitter-square"></i>
+                    </button>
+                    <button onclick="irAInstagram()">
+                        <i class="fab fa-instagram"></i>
+                    </button>
                 </div>
-            </div>
-            <div class="info">
-                <h3>Trabaja con nosotros</h3>
-                <p>Deja tu correo, nosotros te contactamos</p>
-                <input type="email" placeholder="correo">
-                <input type="submit" value="enviar" class="btn btn-verde">
             </div>
         </div>
     </div>
@@ -342,6 +324,21 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+        function irAFacebook() {
+          window.location.href = "https://www.facebook.com/";
+        }
+      </script>
+      <script>
+        function irATwitter() {
+          window.location.href = "https://www.twitter.com/";
+        }
+      </script>
+      <script>
+        function irAInstagram() {
+          window.location.href = "https://www.instagram.com/";
+        }
+      </script>
     <!-- End Script -->
 </body>
 

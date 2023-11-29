@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
+    <script src="https://www.paypal.com/sdk/js?client-id=AeFJrvOOWIfksIEijGFAZJqZ8vYb9GtIlzL9F6ZmLCgcb-p2V2kCw3MXcVjc8y0IfSOR5DFIpo8i0ODb&components=buttons"></script>
+
 </head>
 
 <body>
@@ -48,33 +50,9 @@
                             <a class="nav-link" href="../about.html">Sobre Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../carrito/index.html">Tienda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../contact.html">Contacto</a>
+                            <a class="nav-link" href="../carrito/index.php">Tienda</a>
                         </li>
                     </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="./index.html">
-                        <i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    </a>
                 </div>
             </div>
 
@@ -119,7 +97,7 @@
             <nav>
                 <ul>
                     <li>
-                        <a class="boton-menu boton-volver" href="./index.html">
+                        <a class="boton-menu boton-volver" href="./index.php">
                             <i class="bi bi-arrow-return-left"></i> Seguir comprando
                         </a>
                     </li>
@@ -152,8 +130,11 @@
                             <p>Total:</p>
                             <p id="total">$3000</p>
                         </div>
-                        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</button>
+                        <a href="pagos/pago.php" id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</a>
                     </div>
+                </div>
+                <div>
+                    <div id="paypal-button-container"></div>
                 </div>
 
                 <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por tu compra. <i class="bi bi-emoji-laughing"></i></p>
@@ -161,10 +142,90 @@
             </div>
         </main>
     </div>
+
+    <div class="pie-pagina">
+        <div class="contenedor-piepagina contenedor">
+            <div class="info">
+                <h3>Contactanos</h3>
+                <p>EscoArt@gmail.com</p>
+                <p>gerente.escoart@gmail.com</p>
+            </div>
+            <div class="info">
+                <h3>Atencion Al Cliente</h3>
+                <p>lunes-domingo</p>
+                <p>302-319-11-78</p>
+            </div>
+            <div class="info">
+                <h3>Redes</h3>
+                <p>enterate de lo ultimo</p>
+                <div class="redes-sociales redes-pie">
+                    <button onclick="irAFacebook()">
+                        <i class="fab fa-facebook-square"></i>
+                    </button>
+                    <button onclick="irATwitter()">
+                        <i class="fab fa-twitter-square"></i>
+                    </button>
+                    <button onclick="irAInstagram()">
+                        <i class="fab fa-instagram"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="footer">
+            <p>Todos los derechos reservados &copy; 2023 EscoArt, desarrollado por DISAINT_INT</p>
+        </footer>
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/carrito.js"></script>
     <script src="./js/menu.js"></script>
+    <script>
+        function irAFacebook() {
+          window.location.href = "https://www.facebook.com/";
+        }
+      </script>
+      <script>
+        function irATwitter() {
+          window.location.href = "https://www.twitter.com/";
+        }
+      </script>
+      <script>
+        function irAInstagram() {
+          window.location.href = "https://www.instagram.com/";
+        }
+      </script>
+
+ <div id="paypal-button-container"></div>
+    <script>
+        paypal.Buttons({
+            style:{
+                color: 'blue',
+                shape: 'pill',
+                label: 'pay',
+            },
+            createOrder: function(data, actions){
+                return actions.order.create({
+                    purchase_units: [{
+                        amount:{
+                            value: 99
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions){
+                actions.order.capture().then(function (detalles){
+                    window.location.href="../index2.html"
+                });
+            },
+            onCancel: function(data){
+                alert("Pago cancelado");
+                console.log(data);
+
+            }
+        }).render('#paypal-button-container');
+    </script>
+
+
 </body>
 </html>

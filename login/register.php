@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style2.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Formulario registro </title>
 </head>
 <body>
@@ -24,7 +25,7 @@
                 <h2>Crear una cuenta</h2>
                 
                 <p>usa tu email para registrarte</p>
-                <form class="form" onsubmit="return validarRegistro();"method="post">
+                <form action="registrar.php" class="form" method="POST">
                    <label>
                     <i class='bx bx-user' ></i>
                     <input type="text" name="nombre" pattern="[A-Za-z]{1,15}" placeholder="Nombres">
@@ -46,23 +47,20 @@
                     <i class='bx bx-lock-alt' ></i>
                     <input type="password" name="contrasena" placeholder="Contraseña">
                    </label>
+                 <div>
+                    <div class="g-recaptcha" data-sitekey="6Lfyvx4pAAAAAF4eQX-IPkZlRh82FrxLPuDmLPoP"></div>
+                 </div>
+                
 
-                   <label>
-                    <i class='bx bx-lock-alt' ></i>
-                    <input type="password" name="confirmarcontrasena" placeholder="Confirmar Contraseña">
-                   </label>
-                   
-                   <a  href="iniciar sesion.html" target="_blank">
+
+                   <a  href="iniciar sesion.php" target="_blank">
                     <button class="button" name="registrar" >Registrate</button>
                 </form>
             </div>
         </div>
     </div>
    
-    <?php
-    include("../login/registrar.php");
-    ?>
-    
+   
     <script src="registro.js"></script>
 
 </body>

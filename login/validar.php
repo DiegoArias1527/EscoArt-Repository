@@ -1,33 +1,39 @@
 <?php
-            
-$correo = $_POST['correo'];
-$contrasena = $_POST['contrasena'];
 
 session_start();
-$_SESSION['correo'] = $correo;
-
 include("con_db.php");
 
-$consulta = "SELECT * FROM usuario WHERE Correo_Usuario='$correo'";
-$resultado = mysqli_query($conex, $consulta);
+$correo = $_POST['correo'];
+$contrasena = $_POST['contrasena'];
+$contrasena = hash('sha512', $contrasena);
 
+// Validar la existencia del correo
+$validar_correo = mysqli_query($conex, "SELECT * FROM usuario WHERE Correo_Usuario='$correo'");
 
-if ($fila = mysqli_fetch_assoc($resultado)) {
-    
-    $contrasena_db = $fila['contrasena'];
+if(mysqli_num_rows($validar_correo) > 0){
+    $validar_contrasena = mysqli_query($conex, "SELECT * FROM usuario WHERE Correo_Usuario='$correo' AND Contraseña='$contrasena'");
 
-    if (password_verify($contrasena, $contrasena_db)) {
+    if(mysqli_num_rows($validar_contrasena) > 0){
+        $_SESSION['usurio'] = $correo;
         header("location:../index2.html");
-        exit(); 
+        exit;
     } else {
-      
-        echo "Contraseña incorrecta";
+         echo '
+        <script>
+            alert("La contraseña no es válida");
+            window.location ="iniciarsesion.php";
+        </script>';
+        exit;
     }
 } else {
-   
-    echo "Correo electrónico no registrado";
+    // El correo no existe
+    echo '
+    <script>
+        alert("El correo no existe");
+        window.location ="iniciarsesion.php";
+    </script>';
+    exit;
 }
 
-mysqli_close($conex);
-
 ?>
+

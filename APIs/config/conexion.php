@@ -4,7 +4,7 @@
 
     protected function Conexion(){
         try {
-            $conectar = $this->dbh = new PDO("mysql:host=localhost:3306;dbname=escoart","root","");
+            $conectar = $this->dbh = new PDO("mysql:host=localhost;dbname=escoart","root","");
 
             return $conectar;
         } catch (Exception $e) {

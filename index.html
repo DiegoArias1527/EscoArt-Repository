@@ -48,9 +48,6 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="about2.html">Sobre Nosotros</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact2.html">Contacto</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -309,16 +306,16 @@ https://templatemo.com/tm-559-zay-shop
                 <h3>Redes</h3>
                 <p>enterate de lo ultimo</p>
                 <div class="redes-sociales redes-pie">
-                    <i class="fab fa-facebook-square"></i>
-                    <i class="fab fa-twitter-square"></i>
-                    <i class="fab fa-instagram"></i>
+                    <button onclick="irAFacebook()">
+                        <i class="fab fa-facebook-square"></i>
+                    </button>
+                    <button onclick="irATwitter()">
+                        <i class="fab fa-twitter-square"></i>
+                    </button>
+                    <button onclick="irAInstagram()">
+                        <i class="fab fa-instagram"></i>
+                    </button>
                 </div>
-            </div>
-            <div class="info">
-                <h3>Trabaja con nosotros</h3>
-                <p>Deja tu correo, nosotros te contactamos</p>
-                <input type="email" placeholder="correo">
-                <input type="submit" value="enviar" class="btn btn-verde">
             </div>
         </div>
     </div>
@@ -332,6 +329,21 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+        function irAFacebook() {
+          window.location.href = "https://www.facebook.com/";
+        }
+      </script>
+      <script>
+        function irATwitter() {
+          window.location.href = "https://www.twitter.com/";
+        }
+      </script>
+      <script>
+        function irAInstagram() {
+          window.location.href = "https://www.instagram.com/";
+        }
+      </script>
     <!-- End Script -->
 </body>
 

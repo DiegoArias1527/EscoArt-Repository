@@ -25,7 +25,7 @@
             <div class="form-information-childs">
                 <h2>--- Inicia Sesion ---</h2>
                 
-                <form class="form" onsubmit="return validarInicioSesion(); "action="../login/validar.php" method="POST">
+                <form class="form" ; action="validar.php" method="POST">
                     <label>
                         <i class='bx bx-envelope' ></i>
                         <input type="email" id="email" name="correo" placeholder="Correo electronico">
