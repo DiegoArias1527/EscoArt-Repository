@@ -46,13 +46,14 @@ $d.addEventListener("click", e => {
     if (e.target.matches(".productos *")) {
         let priceId = e.target.parentElement.getAttribute("data-price");
 
-        Stripe(KEYS.public).redirecToCheckout({
+        Stripe(KEYS.public).redirectToCheckout({
             lineItems: [{
                 price: priceId,
                 quantity: 1
             }],
-            successUrl:"http://127.0.01:5500/assets/success.html",
-            cancelUrl:"http://127.0.01:5500/assets/cancel.html"
+            mode: "payment",
+            successUrl:"http://127.0.01:5501/tienda/assets/success.html",
+            cancelUrl:"http://127.0.01:5501/tienda/assets/cancel.html"
         })
         .then(res => {
             if (res.error){
