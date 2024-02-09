@@ -35,7 +35,6 @@ span {
 .producto {
     background: transparent;
     text-align: center;
-    cursor: pointer;
     min-width: 310px;
     font-size: 1.2em;
     font-weight: bold;
@@ -48,4 +47,13 @@ span {
 
 .producto figcaption {
     padding: 1em;
+}
+
+.agregar-carrito {
+    display: felx;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
 }

@@ -16,12 +16,21 @@
 
     <section class="productos" id="productos"></section>
 
+    <div id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="lista-carrito"></ul>
+        <p>Total: <span id="total"></span></p>
+        <button id="pagar">Pagar con Stripe</button>
+    </div>
+
     <template id="producto-template">
         <figure class="producto">
             <img>
             <figcaption></figcaption>
+            <button class="agregar-carrito">Agregar al Carrito</button>
         </figure>
     </template>
+
 
     <script src="https://js.stripe.com/v3/"></script>
     <script src="./js/script.js" type="module"></script>
