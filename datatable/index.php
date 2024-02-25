@@ -146,11 +146,11 @@
       
       //Funcion para Editar
       $(document).on('click', '.editar', function(){
-        var Id_Usuario = $(this).attr("id");
+        var id = $(this).attr("id");
         $.ajax({
           url:"../datatable/obtener_registro.php",
           method:"POST",
-          data:{Id_Usuario:Id_Usuario},
+          data:{id:id},
           dataType:"json",
           success:function(data)
           {
@@ -160,7 +160,7 @@
             $('#segundoape').val(data.Segundo_Apellido);
             $('#correo').val(data.Correo_Usuario);
             $('.modal-title').text("Editar Registro");
-            $('#Id_Usuario').val(Id_Usuario);
+            $('#id').val(id);
             $('#action').val("Editar");
             $('#operacion').val("Editar");
           },
@@ -173,13 +173,13 @@
 
       //Funcion de Borrar
       $(document).on('click', '.borrar', function(){
-        var Id_Usuario = $(this).attr("id");
-        if (confirm("Estas seguro que deseas borrar este registro: " + Id_Usuario))
+        var id = $(this).attr("id");
+        if (confirm("Estas seguro que deseas borrar este registro: " + id))
         {
           $.ajax({
             url: "../datatable/borrar.php",
             method:"POST",
-            data:{Id_Usuario:Id_Usuario},
+            data:{id:id},
             success:function(data)
             {
               alert(data);

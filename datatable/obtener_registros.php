@@ -17,7 +17,7 @@
         $query .= 'ORDER BY ' . $_POST["order"]['0']['column'] . ' '. $_POST["order"][0]['dir']. ' ';
         
     }else{
-        $query .= 'ORDER BY id_Usuario DESC ';
+        $query .= 'ORDER BY id DESC ';
     }
 
     if($_POST["length"] != -1){
@@ -31,14 +31,14 @@
     $filtered_rows = $stmt->rowCount();
     foreach($resultado as $fila){
         $sub_array = array();
-        $sub_array[] = $fila["Id_Usuario"];
+        $sub_array[] = $fila["id"];
         $sub_array[] = $fila["Nom_Usuario"];
         $sub_array[] = $fila["Primer_Apellido"];
         $sub_array[] = $fila["Segundo_Apellido"];
         $sub_array[] = $fila["Correo_Usuario"];
         $sub_array[] = $fila["Contraseña"];
-        $sub_array[] = '<button type="button" name="editar" id="'.$fila["Id_Usuario"].'" class="btn btn-warning btn-xs editar">Editar</button>';
-        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["Id_Usuario"].'" class="btn btn-danger btn-xs borrar">Borrar</button>';
+        $sub_array[] = '<button type="button" name="editar" id="'.$fila["id"].'" class="btn btn-warning btn-xs editar">Editar</button>';
+        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id"].'" class="btn btn-danger btn-xs borrar">Borrar</button>';
         $datos[] = $sub_array;
     }
 

@@ -7,7 +7,7 @@
     $segundoape = $_POST['segundoape'];
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
-    $contrasena = hash('sha512', $contrasena);
+   // $contrasena = hash('sha512', $contrasena);
 
    
    
@@ -38,9 +38,11 @@
     exit;
     }
 
+    $hashed_password = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO usuario (Nom_Usuario, Primer_Apellido, Segundo_Apellido, Correo_Usuario, Contraseña) 
-    VALUES ('$nombre','$primerape','$segundoape','$correo','$contrasena')";
+
+    $query = "INSERT INTO usuario (Nom_Usuario, Primer_Apellido, Segundo_Apellido, Correo_Usuario, Contraseña, id_cargo) 
+    VALUES ('$nombre','$primerape','$segundoape','$correo','$contrasena', 2)";
 
 
 

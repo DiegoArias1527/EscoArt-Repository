@@ -73,14 +73,14 @@ $d.addEventListener("click", e => {
 $pagarBtn.addEventListener("click", () => {
     const lineItems = carrito.map(item => ({
         price: item.id,
-        quantity: item.quantity // Utilizar la cantidad del producto en el carrito
+        quantity: item.quantity
     }));
 
     Stripe(KEYS.public).redirectToCheckout({
         lineItems,
         mode: "payment",
-        successUrl: "http://127.0.01:5501/tienda/assets/success.html",
-        cancelUrl: "http://127.0.01:5501/tienda/assets/cancel.html"
+        successUrl: "http://localhost:8081/EscoArt-Repository/tienda/index.html",
+        cancelUrl: "http://localhost:8081/EscoArt-Repository/tienda/index.html"
     });
 });
 

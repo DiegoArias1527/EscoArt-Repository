@@ -2,9 +2,9 @@
 include("../datatable/conexion.php");
 include("../datatable/funciones.php");
 
-if (isset($_POST["Id_Usuario"])) {
+if (isset($_POST["id"])) {
     $salida = array();
-    $stmt = $conexion->prepare("SELECT * FROM usuario WHERE Id_Usuario='" . $_POST["Id_Usuario"] . "' LIMIT 1");
+    $stmt = $conexion->prepare("SELECT * FROM usuario WHERE id='" . $_POST["id"] . "' LIMIT 1");
     $stmt->execute();
     $resultado = $stmt->fetchAll();
     foreach ($resultado as $fila) {

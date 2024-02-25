@@ -2,11 +2,11 @@
 include("../datatable/conexion.php");
 include("../datatable/funciones.php");
 
-if (isset($_POST["Id_Usuario"])) {
-    $stmt = $conexion->prepare("DELETE FROM usuario WHERE Id_Usuario=:Id_Usuario");
+if (isset($_POST["id"])) {
+    $stmt = $conexion->prepare("DELETE FROM usuario WHERE id=:id");
     $resultado = $stmt->execute(
         array(
-            ':Id_Usuario'  => $_POST["Id_Usuario"]
+            ':id'  => $_POST["id"]
         )
     );
     
